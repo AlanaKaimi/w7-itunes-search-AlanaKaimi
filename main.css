@@ -1,44 +1,173 @@
 body {
     background-color: rgb(88, 87, 87);
 }
+
 .container {
-    border: 2px solid rgb(88, 5, 5);
+    max-width: 80%;
+    margin: auto;
+    border: 1px solid rgb(88, 5, 5);
     border-radius: 20px;
     background-color: rgb(182, 182, 196);
 }
 
 header {
-    border-bottom: 2px solid black;
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: #ffffff;
 }
+
 h1 {
-    font-size: 6.5em;
+    font-size: 4.5rem;
     margin-left: 20px;
+    text-shadow: -3px 4px rgba(218, 214, 214, 0.712);
 }
 
 h1 img {
     max-height: 150px;
     max-width: 150px;
+
+}
+
+h2 {
+    font-size: 1.25rem;
+    text-align: center;
 }
 
 
 /*! 1 SEARCH */
-.search {
-    /* border: 2px solid #5d0580; */
+
+
+@import url("https://fonts.googleapis.com/css?family=Inconsolata:700");
+
+.container2 {
+    max-width: 300px;
+    position: relative;
+    margin: auto;
+    right: 0;
     float: right;
+    height: 100px;
 }
 
+/* search button */
+.container2 .search {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: #c4356e;
+    border-radius: 50%;
+    transition: all 1s;
+    z-index: 4;
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.4);
+}
 
-.search-bar {
+.container2 .search:hover {
+    cursor: pointer;
+}
+
+/* handle of magnifying glass */
+.container2 .search::before {
+    content: "";
+    position: absolute;
+    margin: auto;
+    top: 22px;
+    right: 0;
+    bottom: 0;
+    left: 22px;
+    width: 12px;
+    height: 2px;
+    background: white;
+    transform: rotate(45deg);
+    transition: all 0.5s;
+}
+
+/* circle of magnifying glass */
+.container2 .search::after {
+    content: "";
+    position: absolute;
+    margin: auto;
+    top: -5px;
+    right: 0;
+    bottom: 0;
+    left: -5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid white;
+    transition: all 0.5s;
+}
+
+/* search-bar input */
+.container2 input {
+    font-family: "Inconsolata", monospace;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    outline: none;
+    border: none;
+    background: #c4356e;
+    color: white;
+    text-shadow: 0 0 10px #af2b67;
+    padding: 0 80px 0 20px;
     border-radius: 30px;
+    box-shadow: 0 0 25px 0 #af2b67, 0 20px 25px 0 rgba(0, 0, 0, 0.2);
+    transition: all 1s;
+    opacity: 0;
+    z-index: 5;
+    font-weight: bolder;
+    letter-spacing: 0.1em;
 }
 
-
-
-.search-event {
-    border-radius: 30px;
+.container2 input:hover {
+    cursor: pointer;
 }
+
+.container2 input:focus {
+    position: absolute;
+    width: 300px;
+    opacity: 1;
+    cursor: text;
+}
+
+/* active search button */
+.container2 input:focus~.search {
+    background: #151515;
+    z-index: 6;
+}
+
+.container2 input:focus~.search::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 25px;
+}
+
+.container2 input:focus~.search::after {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 25px;
+    height: 2px;
+    border: none;
+    background: white;
+    border-radius: 0%;
+    transform: rotate(-45deg);
+}
+
+.container2 input::placeholder {
+    color: white;
+    opacity: 0.5;
+    font-weight: bolder;
+}
+
 
 /*! 2 SELECT */
 .select {
@@ -53,16 +182,15 @@ h1 img {
 }
 
 .track {
-    max-width: 50%;
-    border: 2px solid black;
-    border-radius: 20px;
-    margin: 15px;
+    width: 325px;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
     background-color: #ffffff;
 }
 
-
 .track img {
-    float:left;
+    float: left;
     border-radius: 100%;
     transform: translate(-15px, -10px);
     box-shadow: -3px 4px rgba(206, 204, 204, 0.623);
@@ -74,10 +202,19 @@ h1 img {
     padding: 5px;
 }
 
-
+button {
+    outline: none;
+    background-color: rgb(30, 201, 30);
+    border-radius: 30px;
+    box-shadow: -1px 1px rgba(218, 214, 214, 0.712);
+}
 
 audio {
     float: bottom;
 }
 
 /*! 3 PLAY */
+
+.small-font {
+    font-size: .5rem;
+}
